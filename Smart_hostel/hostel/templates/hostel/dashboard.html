@@ -1,0 +1,150 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>SmartHostel Dashboard</title>
+  <link rel="stylesheet" href="{% static 'my_app/css/navbar.css' %}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'hostel/dashboard.css' %}">
+
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <div class="navbar-container">
+      <div class="logo">SmartHostel</div>
+      <ul class="nav-links">
+        <li><a href="{% url 'home' %}">Dashboard</a></li>
+        <li><a href="{% url 'Roomsinfo' %}">Rooms Info</a></li>
+        <li><a href="{% url 'home' %}">Notices</a></li>
+        <li><a href="{% url 'admin' %}"> Admin</a></li>
+        
+
+        {% if data %}
+        <li class="dropdown">
+          <a href="#">Welcome, {{ data }}</a>
+          <div class="dropdown-content">
+            <a href="{% url 'profile' %}">Profile</a>
+            <a href="{% url 'booking' %}">Bookings</a>
+            <a href="{% url 'logout' %}">Logout</a>
+          </div>
+        </li>
+        {% else %}
+        <li><a href="{% url 'signup' %}">Student</a></li>
+        {% endif %}
+      </ul>
+    </div>
+  </nav>
+
+  <div class="slideshow-container">
+
+    <div class="mySlides fade">
+      <div class="numbertext">1 / 4</div>
+      <img class="myImage" src="{% static 'hostel/image/hostel1.jpeg' %}" alt="test image" style="width:100%">
+      <div class="text">Rooms</div>
+    </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext">2 / 4</div>
+      <img class="myImage" src="{% static 'hostel/image/hostel2.jpg'%}" alt="test image" style="width:100%">
+      <div class="text">Outside view</div>
+    </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext">3 / 4</div>
+      <img class="myImage" src="{% static 'hostel/image/hostel3.jpeg'%}" alt="test image" style="width:100%">
+      <div class="text">Entertainment</div>
+    </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext">4 / 4</div>
+      <img class="myImage" src="{% static 'hostel/image/hostel4.jpg'%}" alt="test image" style="width:100%">
+      <div class="text">Balcony view</div>
+    </div>
+
+    <!-- Navigation buttons -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  </div>
+
+  <br>
+
+  <!-- The dots -->
+  <div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+    <span class="dot" onclick="currentSlide(4)"></span>
+  </div>
+
+  <script src="{%static 'hostel/js/dashboard.js' %}"></script>
+
+  <center>
+    <h1> Chairman's desk</h1>
+  </center>
+  <div class="chairman-section">
+    <div class="chairman-text">
+      <h2>Message from the Hostel Chairman</h2>
+      <p><em>“A hostel is not just a place to stay — it’s a place to grow.”</em></p>
+      <p>Welcome to <strong>SmartHostel</strong>, where we believe that a student’s success is built not only in
+        classrooms but also in the environment they live in.</p>
+      <p>As the <strong>Hostel Chairman</strong>, I, <strong>Shivansh</strong>, am committed to fostering a secure,
+        inclusive, and vibrant living experience for every resident.</p>
+      <p>With modern amenities, efficient management, and a strong sense of community, SmartHostel is more than a
+        building — it's a space for growth, learning, and lifelong memories.</p>
+      <p style="margin-top: 20px;"><strong>Shivansh</strong><br>Hostel Chairman</p>
+    </div>
+
+    <div class="chairman-photo">
+      <img class="chairman-photo1" src="{% static 'hostel/image/hostel4.jpg' %}" alt="Chairman Shivansh">
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="footer-container">
+
+      <div class="footer-section">
+        <h3>SmartHostel</h3>
+        <p>Creating a secure, comfortable, and vibrant hostel life experience for every student.</p>
+      </div>
+
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="{% url 'home' %}">Dashboard</a></li>
+          <li><a href="{% url 'home' %}">Rooms</a></li>
+          <li><a href="{% url 'home' %}">Profile</a></li>
+          <li><a href="{% url 'home' %}">Logout</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Contact</h4>
+        <p>Email: info@smarthostel.in</p>
+        <p>Phone: +91-9876543210</p>
+        <p>Location: Gurgaon, India</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 SmartHostel. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <body>
+    <table>
+      <thead>
+        <th>Rooms</th>
+        <th>NON-AC</th>
+        <th>AC</th>
+      </thead>
+    </table>
+  </body>
+
+
+
+</body>
+
+</html>

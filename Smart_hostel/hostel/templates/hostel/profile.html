@@ -1,0 +1,20 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Profile Preview</title>
+  <link rel="stylesheet" href= "{% static 'hostel/profile.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">SmartHostel</div>
+            <ul class="nav-links">
+                <li><a href="{% url 'home' %}">Dashboard</a></li>
+                <li><a href="{% url 'Roomsinfo' %}">Rooms Info</a></li>
+                <li><a href="{% url 'home' %}">Notices</a></li>
+                <li><a href="{% url 'signup' %}">Signup/Sign in</a></li>
+            </ul>
+        </div>
+    </nav>

@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>SmartHostel Dashboard</title>
+  <link rel="stylesheet" href="{% static 'my_app/css/navbar.css' %}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'hostel/admin_panel.css' %}">
+
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <div class="navbar-container">
+      <div class="logo">SmartHostel</div>
+      <ul class="nav-links">
+        <li><a href="{% url 'home' %}">Dashboard</a></li>
+        <li><a href="{% url 'Roomsinfo' %}">Rooms Info</a></li>
+        <li><a href="{% url 'logout' %}"> Logout</a></li>
+        
+
+      
+      </ul>
+    </div>
+  </nav>
+
+
+
+  <script src="{%static 'hostel/js/dashboard.js' %}"></script>
+  <div class="sidebar">
+    <ul>
+      <li><a href="{% url 'home' %}">🏠 Home</a></li>
+      <li><a href="{% url  'admin_panel_students'%}">📋 Students</a></li>
+      <li><a href="{% url 'admin_panel_staff' %}">🛏️ Staff</a></li>
+      <li><a href="#">⚙️ Settings</a></li>
+    </ul>
+  </div>
+
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <h1>this is staff admin page </h1>
+
+    
+
+  <div id="staff" class="table-container" >
+      <h2>Staff/Admin List</h2>
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+        </tr>
+        {% for admin in staff %}
+        <tr>
+          <td>{{ admin.id }}</td>
+          <td>{{ admin.first_name }}</td>
+          <td>{{ admin.email }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+
+    
+
+
+
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 SmartHostel. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>

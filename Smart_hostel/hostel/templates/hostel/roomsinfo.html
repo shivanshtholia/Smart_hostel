@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'hostel/roomsinfo.css' %}">
+
+</head>
+<body>
+    <nav class="navbar">
+    <div class="navbar-container">
+      <div class="logo">SmartHostel</div>
+      <ul class="nav-links">
+        <li><a href="{% url 'home' %}">Dashboard</a></li>
+        <li><a href="{% url 'Roomsinfo' %}">Rooms Info</a></li>
+        <li><a href="{% url 'home' %}">Notices</a></li>
+        <li><a href="{% url 'signup' %}">Signup/Sign in</a></li>
+        
+      </ul>
+    </div>
+  </nav>
+    <center><h1>Our Facilities</h1></center>
+    <form action="" method="post">
+       <label for="rooms">Types of  Rooms:</label>
+<select id="room" name="room">
+<option value="AC">AC</option>
+<option value="NON-AC">NON-AC</option>
+</select>
+
+    </form>
+    <I><h1>AC ROOM </h1></I>
+    <div><img src="{% static 'hostel/roomsimage/room1.png'%}" alt="room image" height="450"></div>
+    <i><h1>LIBRARY</h1></i>
+     <div><img src="{% static 'hostel/roomsimage/library1.jpg'%}" alt="library" height="450" border="5"></div>
+
+
+    
+    
+</body>
+</html>
