@@ -34,6 +34,14 @@
     <i><h1>LIBRARY</h1></i>
      <div><img src="{% static 'hostel/roomsimage/library1.jpg'%}" alt="library" height="450" border="5"></div>
 
+     
+    <form method="POST" action="{% url 'room_booking' %}">
+  {% csrf_token %}
+  
+  <!-- your form fields -->
+  <button type="submit" class="bookingbtn">Booking</button>
+</form>
+
 
     
     

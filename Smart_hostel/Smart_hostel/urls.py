@@ -32,5 +32,6 @@ urlpatterns = [
     path('students',views.admin_panel_students,name="admin_panel_students"),
     path('staff',views.admin_panel_staff,name="admin_panel_staff"),
     path('delete_student/<int:id>/',views.delete_student,name="delete_student"),
-    path('admin_panel',views.admin_panel,name="admin_panel")
+    path('admin_panel',views.admin_panel,name="admin_panel"),
+    path('room_booking',views.room_booking,name="room_booking")
 ]

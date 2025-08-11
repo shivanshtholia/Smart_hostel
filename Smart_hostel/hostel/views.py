@@ -132,6 +132,9 @@ def admin_panel(request):
      if 'admin_id' not in request.session:
         return redirect('admin')
      return render(request,'hostel/admin_panel.html',{"name":request.session['admin_name']}) 
+@csrf_exempt
+def room_booking(request):
+    return render(request,"hostel/booking.html")
 
 
         
