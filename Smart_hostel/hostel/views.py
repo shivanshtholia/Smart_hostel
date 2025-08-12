@@ -6,6 +6,8 @@ from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.hashers import make_password,check_password
 from django.shortcuts import redirect, get_object_or_404
+from django.core.mail import send_mail
+from django.conf import settings
 
 
 
@@ -32,7 +34,17 @@ def signup(request):
             return render(request,'hostel/signup.htmnl')
         hashed_password=make_password(password)
         Hostel_user.objects.create(email=email,password=hashed_password,name=name)
-        messages.success(request,"account created successfully...")
+        send_custom_email(
+            subject='Welcome to SmartHostel!',
+            message=f"Hello {name},\n\nYour account has been successfully created.\n\nThanks for joining SmartHostel!",
+            recipient_email=email,
+            html_message=f"""
+                <h2>Welcome {name}!</h2>
+                <p>Your account has been successfully created.</p>
+                <p>Thanks for joining <b>SmartHostel</b>!</p>
+            """
+        )
+        messages.success(request, "Account created successfully! A confirmation email has been sent.")
         return  render(request,'hostel/signup.html')
     else:
         return render(request,'hostel/signup.html')
@@ -135,7 +147,24 @@ def admin_panel(request):
 @csrf_exempt
 def room_booking(request):
     return render(request,"hostel/booking.html")
-
+def send_custom_email(subject, message, recipient_email, html_message=None):
+    """
+    Sends an email to a given recipient.
+    
+    Args:
+        subject (str): Subject of the email.
+        message (str): Plain text message.
+        recipient_email (str): Receiver's email address.
+        html_message (str, optional): HTML content for better formatting.
+    """
+    send_mail(
+        subject=subject,
+        message=message,
+        from_email=settings.EMAIL_HOST_USER,
+        recipient_list=[recipient_email],
+        fail_silently=False,
+        html_message=html_message  # Optional HTML content
+    )
 
         
         
