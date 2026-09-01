@@ -175,3 +175,6 @@ def notices(request):
 
 def about(request):
     return render(request,"hostel/about.html")
+
+def contact(request):
+    return render(request,"hostel/contact.html")
