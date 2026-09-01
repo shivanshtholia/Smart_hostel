@@ -14,13 +14,14 @@
       <ul class="nav-links">
         <li><a href="{% url 'home' %}">Dashboard</a></li>
         <li><a href="{% url 'Roomsinfo' %}">Rooms Info</a></li>
-        <li><a href="{% url 'home' %}">Notices</a></li>
-        <li><a href="{% url 'signup' %}">Signup/Sign in</a></li>
+        <li><a href="{% url 'notices' %}">Notices</a></li>
+        <li><a href="{% url 'admin' %}"> Admin</a></li>
+        <li><a href="{% url 'signup' %}">Student</a></li>
         
       </ul>
     </div>
   </nav>
-    <center><h1>Our Facilities</h1></center>
+    <center><h1>Our Facilities</h1>
     <form action="" method="post">
        <label for="rooms">Types of  Rooms:</label>
 <select id="room" name="room">
@@ -39,8 +40,8 @@
   {% csrf_token %}
   
   <!-- your form fields -->
-  <button type="submit" class="bookingbtn">Booking</button>
-</form>
+  <center><button type="submit" class="bookingbtn">Booking</button></center>
+</form></center>
 
 
     

@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notices - SmartHostel</title>
+    <link rel="stylesheet" href="{% static 'hostel/notices.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+    <div class="navbar-container">
+      <div class="logo">SmartHostel</div>
+      <ul class="nav-links">
+        <li><a href="{% url 'home' %}">Dashboard</a></li>
+        <li><a href="{% url 'Roomsinfo' %}">Rooms Info</a></li>
+        <li><a href="{% url 'notices' %}">Notices</a></li>
+        <li><a href="{% url 'admin' %}"> Admin</a></li>
+        
+        
+
+        {% if data %}
+        <li class="dropdown">
+          <a href="#">Welcome, {{ data }}</a>
+          <div class="dropdown-content">
+            <a href="{% url 'profile' %}">Profile</a>
+            <a href="{% url 'booking' %}">Bookings</a>
+            <a href="{% url 'logout' %}">Logout</a>
+          </div>
+        </li>
+        {% else %}
+        <li><a href="{% url 'signup' %}">Student</a></li>
+        {% endif %}
+      </ul>
+    </div>
+  </nav>
+
+    <div class="notice-container">
+        <h1>📢 Hostel Notices</h1>
+
+        <div id="notice-list">
+            <!-- Example Notice -->
+            <div class="notice-card">
+                <h3>Hostel Maintenance</h3>
+                <p>The water supply will be interrupted on 15th August from 9 AM to 12 PM for maintenance work.</p>
+                <span class="date">Posted on: 12 Aug 2025</span>
+            </div>
+
+            <div class="notice-card">
+                <h3>Festival Celebration</h3>
+                <p>Join us in the common hall on 18th August for Independence Day celebrations!</p>
+                <span class="date">Posted on: 10 Aug 2025</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'my_app/js/notices.js' %}"></script>
+</body>
+</html>

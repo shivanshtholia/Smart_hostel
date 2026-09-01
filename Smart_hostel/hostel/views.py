@@ -166,6 +166,10 @@ def send_custom_email(subject, message, recipient_email, html_message=None):
         html_message=html_message  # Optional HTML content
     )
 
+
+@csrf_exempt
+def notices(request):
+    return render(request,"hostel/notices.html")
         
         
 
