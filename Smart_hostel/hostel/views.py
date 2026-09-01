@@ -170,7 +170,8 @@ def send_custom_email(subject, message, recipient_email, html_message=None):
 @csrf_exempt
 def notices(request):
     return render(request,"hostel/notices.html")
-        
-        
 
-    
+# changing the protype of the project to a hostel management system with admin and student login, room booking, and notice board functionalities. 
+
+def about(request):
+    return render(request,"hostel/about.html")
